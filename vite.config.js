@@ -6,3 +6,4 @@ export default defineConfig({
     plugins: [react()],
     base: '/mimitsvetik/',   // 👈 this is the key line for GitHub Pages
 })
+

@@ -34,9 +34,12 @@ export default function App() {
     }, []);
 
     const openFile = (file) => {
-        const url = `${BASE}${file}`; // корректный путь на Pages
-        const w = window.open(url, "_blank", "noopener,noreferrer");
-        if (!w) alert("Не удалось открыть: " + url);
+        const url = `${BASE}${file}`;
+        const a = document.createElement("a");
+        a.href = url;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.click();       // открывает без pop-up warning и без alert
     };
 
     document.title = "Semitsvetik • clickable petals";

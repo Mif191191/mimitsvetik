@@ -1,0 +1,59 @@
+{
+    "setId": "animals_ru_v1",
+    "title": "Животные — набор 1",
+    "centerImage": "assets/center/Mia2024.jpg",
+    "centerSound": {
+        "primary": "assets/snd/story.opus",
+        "fallback": "assets/snd/story.mp3"
+    },
+    "petals": [
+        {
+            "id": "cat",
+            "label": "Кот",
+            "d": "M 400 120 C 480 140 520 220 400 400 C 280 220 320 140 400 120 Z",
+            "fill": "#ffadad",
+            "image": "/assets/img/cat.jpg",
+            "description": "Мягкий, пушистый, любит мурлыкать."
+        },
+        {
+            "id": "dog",
+            "label": "Пёс",
+            "d": "M 400 120 C 500 160 560 240 400 400 C 240 240 300 160 400 120 Z",
+            "fill": "#ffd6a5",
+            "image": "/assets/img/dog.jpg",
+            "description": "Верный друг и охранник."
+        },
+        {
+            "id": "cow",
+            "label": "Корова",
+            "d": "M 400 120 C 520 180 580 260 400 400 C 220 260 280 180 400 120 Z",
+            "fill": "#fdffb6",
+            "image": "/assets/img/cow.jpg",
+            "description": "Даёт молоко и пасётся на лугу."
+        },
+        {
+            "id": "sheep",
+            "label": "Овца",
+            "d": "M 400 120 C 540 200 600 280 400 400 C 200 280 260 200 400 120 Z",
+            "fill": "#caffbf",
+            "image": "/assets/img/sheep.jpg",
+            "description": "Пушистая шерсть для тёплой одежды."
+        },
+        {
+            "id": "horse",
+            "label": "Лошадь",
+            "d": "M 400 120 C 560 220 620 300 400 400 C 180 300 240 220 400 120 Z",
+            "fill": "#9bf6ff",
+            "image": "/assets/img/horse.jpg",
+            "description": "Быстрая и сильная, помогает в хозяйстве."
+        },
+        {
+            "id": "bird",
+            "label": "Птица",
+            "d": "M 400 120 C 580 240 640 320 400 400 C 160 320 220 240 400 120 Z",
+            "fill": "#a0c4ff",
+            "image": "/assets/img/bird.jpg",
+            "description": "Щебечет и летает высоко в небе."
+        }
+    ]
+}

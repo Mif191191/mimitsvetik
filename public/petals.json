@@ -1,50 +1,65 @@
 [
     {
-        "id": "red",
-        "label": "Red",
-        "color": "rgba(255,99,132,0.35)",
-        "file": "red.jpeg"
-    },
+        "center": {
+            "image": "center_v1.png",
+            "menu": [
+                {
+                    "name": "Mia"
+                },
+                {
+                    "name": "Admin"
+                }
+            ]
+        },
+        "petals": [
+            // ← your existing 7 items, unchanged (keep your image/link/name fields)]
+        }
     {
-        "id": "orange",
-        "label": "Orange",
-        "color": "rgba(255,165,0,0.55)",
-        "file": "who_is_it.jpeg"
-    },
-    {
-        "id": "yellow",
-        "label": "Yellow",
-        "color": "rgba(255,221,87,0.35)",
-        "file": "yellow.jpeg"
-    },
-    {
-        "id": "green",
-        "label": "Lisichka",
-        "color": "rgba(52,211,153,0.35)",
-        "file": "lisichka.jpg"
-    },
-    {
-        "id": "blue3",
-        "label": "Blue 3",
-        "color": "rgba(96,165,250,0.35)",
-        "file": "3.JPG"
-    },
-    {
-        "id": "blue4",
-        "label": "Blue 4",
-        "color": "rgba(59,130,246,0.35)",
-        "file": "4.JPG"
-    },
-    {
-        "id": "blue5",
-        "label": "Blue 5",
-        "color": "rgba(167,139,250,0.35)",
-        "file": "5.JPG"
-    },
-    {
-        "id": "blue7",
-        "label": "Blue 7",
-        "color": "rgba(139,92,246,0.35)",
-        "file": "7.JPG"
-    }
-]
+            "id": "red",
+            "label": "Red",
+            "color": "rgba(255,99,132,0.35)",
+            "file": "red.jpeg"
+        },
+        {
+            "id": "orange",
+            "label": "Orange",
+            "color": "rgba(255,165,0,0.55)",
+            "file": "who_is_it.jpeg"
+        },
+        {
+            "id": "yellow",
+            "label": "Yellow",
+            "color": "rgba(255,221,87,0.35)",
+            "file": "yellow.jpeg"
+        },
+        {
+            "id": "green",
+            "label": "Lisichka",
+            "color": "rgba(52,211,153,0.35)",
+            "file": "lisichka.jpg"
+        },
+        {
+            "id": "blue3",
+            "label": "Blue 3",
+            "color": "rgba(96,165,250,0.35)",
+            "file": "3.JPG"
+        },
+        {
+            "id": "blue4",
+            "label": "Blue 4",
+            "color": "rgba(59,130,246,0.35)",
+            "file": "4.JPG"
+        },
+        {
+            "id": "blue5",
+            "label": "Blue 5",
+            "color": "rgba(167,139,250,0.35)",
+            "file": "5.JPG"
+        },
+        {
+            "id": "blue7",
+            "label": "Blue 7",
+            "color": "rgba(139,92,246,0.35)",
+            "file": "7.JPG"
+        }
+    ]

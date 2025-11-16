@@ -1,0 +1,21 @@
+{
+    "centerMenu": [
+        "Mia",
+        "Admin"
+    ],
+    "defaultSet": "set_0",
+    "linkSets": {
+        "set_0": {
+            "label": "Old images",
+            "links": [
+                "old/yellow.jpg",
+                "old/orange.jpg",
+                "old/red.jpg",
+                "old/violet.jpg",
+                "old/pink.jpg",
+                "old/lightblue.jpg",
+                "old/green.jpg"
+            ]
+        }
+    }
+}

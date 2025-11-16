@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import FlowerV1FullInteractive from "./components/FlowerV1FullInteractive";
 import AdminPanel from "./components/AdminPanel";
 
@@ -9,6 +9,16 @@ export default function App() {
     const [cfg, setCfg] = React.useState(null);
     const [menuOpen, setMenuOpen] = React.useState(false);
     const [adminOpen, setAdminOpen] = React.useState(false);
+
+    const greetingAudioRef = useRef(null);
+
+    function onCenterClick() {
+        if (greetingAudioRef.current) {
+            greetingAudioRef.current.currentTime = 0;
+            greetingAudioRef.current.play();
+        }
+        setMenuOpen(true);
+    }
 
     // Load config
     React.useEffect(() => {
@@ -22,9 +32,11 @@ export default function App() {
     const [setId, setSetId] = React.useState(
         () => localStorage.getItem(LS_KEY) || null
     );
+
     React.useEffect(() => {
         if (!setId && cfg?.defaultSet) setSetId(cfg.defaultSet);
     }, [cfg, setId]);
+
     React.useEffect(() => {
         if (setId) localStorage.setItem(LS_KEY, setId);
     }, [setId]);
@@ -32,27 +44,31 @@ export default function App() {
     if (!cfg || !setId) return <div style={{ padding: 16 }}>Loading…</div>;
 
     const linkSet = cfg.linkSets?.[setId] || { links: [] };
-    // Build absolute (base-aware) links:
-    const links = (linkSet.links || []).map(u => u.startsWith("http") ? u : `${B}${u}`);
 
-    // Center menu actions
-    function onCenterClick() { setMenuOpen(true); }
+    // Build absolute (base-aware) links:
+    const links = (linkSet.links || []).map((u) =>
+        u.startsWith("http") ? u : `${B}${u}`
+    );
+
+    // Menu selection
     function onMenuSelect(name) {
         setMenuOpen(false);
         if (name === "Admin") setAdminOpen(true);
-        if (name === "Mia") {
-            alert("Mia: Coming next…");
-        }
+        if (name === "Mia") alert("Mia: Coming next…");
     }
 
-    // Petal fallback (no link) shows index
+    // Petal fallback
     function onPetalFallback(i) {
         alert(`Petal ${i + 1}`);
     }
 
-    // ⬇️ Use your tuned overlay values here
+    // FINAL CLEAN RETURN BLOCK
     return (
         <div style={{ maxWidth: 1024, margin: "0 auto" }}>
+            {/* AUDIO */}
+            <audio ref={greetingAudioRef} src={`${B}audio/greeting.m4a`} />
+
+            {/* FLOWER */}
             <FlowerV1FullInteractive
                 size={1024}
                 v={201}
@@ -68,21 +84,27 @@ export default function App() {
                 onCenter={onCenterClick}
             />
 
-            {/* Center menu: Mia / Admin */}
+            {/* CENTER MENU */}
             {menuOpen && (
                 <div
                     onClick={() => setMenuOpen(false)}
                     style={{
-                        position: "fixed", inset: 0, background: "rgba(0,0,0,0.35)",
-                        display: "grid", placeItems: "center"
+                        position: "fixed",
+                        inset: 0,
+                        background: "rgba(0,0,0,0.35)",
+                        display: "grid",
+                        placeItems: "center",
                     }}
                 >
                     <div
                         onClick={(e) => e.stopPropagation()}
                         style={{
-                            background: "#fff", padding: "16px 20px", borderRadius: 12,
-                            minWidth: 240, boxShadow: "0 8px 24px rgba(0,0,0,0.15)",
-                            fontFamily: "system-ui, sans-serif"
+                            background: "#fff",
+                            padding: "16px 20px",
+                            borderRadius: 12,
+                            minWidth: 240,
+                            boxShadow: "0 8px 24px rgba(0,0,0,0.15)",
+                            fontFamily: "system-ui, sans-serif",
                         }}
                     >
                         <h3 style={{ margin: "0 0 12px" }}>Menu</h3>
@@ -93,29 +115,28 @@ export default function App() {
                                     onClick={() => onMenuSelect(name)}
                                     style={{
                                         padding: "10px 0",
-                                        borderBottom: idx === 0 ? "1px solid #eee" : "none",
-                                        cursor: "pointer"
+                                        borderBottom:
+                                            idx === 0 ? "1px solid #eee" : "none",
+                                        cursor: "pointer",
                                     }}
                                 >
                                     {name}
                                 </li>
                             ))}
                         </ul>
-                        <button onClick={() => setMenuOpen(false)} style={{ marginTop: 12 }}>
+                        <button
+                            onClick={() => setMenuOpen(false)}
+                            style={{ marginTop: 12 }}
+                        >
                             Close
                         </button>
                     </div>
                 </div>
             )}
 
-            {/* Admin set chooser */}
+            {/* ADMIN PANEL */}
             {adminOpen && (
-                <AdminPanel
-                    sets={cfg.linkSets}
-                    activeId={setId}
-                    onCancel={() => setAdminOpen(false)}
-                    onSave={(id) => { setSetId(id); setAdminOpen(false); }}
-                />
+                <AdminPanel onClose={() => setAdminOpen(false)} B={B} />
             )}
         </div>
     );
